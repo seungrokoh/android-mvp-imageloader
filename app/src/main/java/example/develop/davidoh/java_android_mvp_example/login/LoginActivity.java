@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import example.develop.davidoh.java_android_mvp_example.MainActivity;
+import example.develop.davidoh.java_android_mvp_example.main.MainActivity;
 import example.develop.davidoh.java_android_mvp_example.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
