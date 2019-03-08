@@ -3,14 +3,14 @@ package example.develop.davidoh.java_android_mvp_example.view.main;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import example.develop.davidoh.java_android_mvp_example.R;
-import example.develop.davidoh.java_android_mvp_example.util.ActivityUtil;
+import example.develop.davidoh.java_android_mvp_example.util.Util;
+import example.develop.davidoh.java_android_mvp_example.view.main.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    ActivityUtil.replaceFragmentToActivity(getSupportFragmentManager(),HomeFragment.getInstance(), R.id.container);
+                    Util.replaceFragmentToActivity(getSupportFragmentManager(),HomeFragment.getInstance(), R.id.container);
                     return true;
                 case R.id.navigation_camera:
-                    ActivityUtil.replaceFragmentToActivity(getSupportFragmentManager(), CameraFragment.getInstance(), R.id.container);
+                    Util.replaceFragmentToActivity(getSupportFragmentManager(), CameraFragment.getInstance(), R.id.container);
                     return true;
                 case R.id.navigation_more:
-                    ActivityUtil.replaceFragmentToActivity(getSupportFragmentManager(), MoreFragment.getInstance(), R.id.container);
+                    Util.replaceFragmentToActivity(getSupportFragmentManager(), MoreFragment.getInstance(), R.id.container);
                     return true;
             }
             return false;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         init();
 
-        ActivityUtil.replaceFragmentToActivity(getSupportFragmentManager(), HomeFragment.getInstance(), R.id.container);
+        Util.replaceFragmentToActivity(getSupportFragmentManager(), HomeFragment.getInstance(), R.id.container);
     }
 
 }
