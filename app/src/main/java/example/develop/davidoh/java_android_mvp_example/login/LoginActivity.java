@@ -1,13 +1,11 @@
 package example.develop.davidoh.java_android_mvp_example.login;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import example.develop.davidoh.java_android_mvp_example.main.MainActivity;
 import example.develop.davidoh.java_android_mvp_example.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
@@ -64,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
     @Override
     public void navigateToHome() {
-        startActivity(new Intent(this, MainActivity.class));
+        //startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 }

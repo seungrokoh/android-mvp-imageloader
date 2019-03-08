@@ -5,4 +5,8 @@
     <string name="password_hint">비밀번호</string>
     <string name="username_hint">이름</string>
     <string name="login_button">로그인</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_more">More</string>
 </resources>
