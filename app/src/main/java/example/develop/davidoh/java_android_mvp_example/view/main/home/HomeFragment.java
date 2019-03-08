@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import example.develop.davidoh.java_android_mvp_example.R;
+import example.develop.davidoh.java_android_mvp_example.data.source.image.ImageRepository;
 import example.develop.davidoh.java_android_mvp_example.view.main.home.presenter.HomeContractor;
 import example.develop.davidoh.java_android_mvp_example.view.main.home.presenter.HomePresenter;
 
@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment implements HomeContractor.View{
         imageView = view.findViewById(R.id.imageView);
         progressBar = view.findViewById(R.id.progressBar);
 
-        homePresenter = new HomePresenter(this);
+        homePresenter = new HomePresenter(this, ImageRepository.getInstance());
         homePresenter.loadImage();
     }
 
