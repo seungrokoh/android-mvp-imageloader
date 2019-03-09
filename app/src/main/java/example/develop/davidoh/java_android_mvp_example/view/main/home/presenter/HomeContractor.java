@@ -3,7 +3,7 @@ package example.develop.davidoh.java_android_mvp_example.view.main.home.presente
 public interface HomeContractor {
     interface View {
 
-        void showImage(String result);
+        void showImageLoaded();
 
         void hideProgress();
 

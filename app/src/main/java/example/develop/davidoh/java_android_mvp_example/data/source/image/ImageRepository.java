@@ -21,7 +21,7 @@ public class ImageRepository implements ImageDatasource {
 
 
     @Override
-    public void loadImageFileName(LoadImageCallback loadImageCallback) {
-        imageLocalData.loadImageFileName(loadImageCallback);
+    public void loadImageList(LoadImageCallback loadImageCallback, int size) {
+        imageLocalData.loadImageList(loadImageCallback, size);
     }
 }

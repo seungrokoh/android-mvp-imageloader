@@ -1,5 +1,9 @@
 package example.develop.davidoh.java_android_mvp_example.data.source.image;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import example.develop.davidoh.java_android_mvp_example.data.ImageData;
 import example.develop.davidoh.java_android_mvp_example.util.Util;
 
 public class ImageLocalData implements ImageDatasource{
@@ -19,7 +23,13 @@ public class ImageLocalData implements ImageDatasource{
     private ImageLocalData(){}
 
     @Override
-    public void loadImageFileName(LoadImageCallback loadImageCallback) {
-        loadImageCallback.onImageLoaded(String.format("sample%02d", Util.random()));
+    public void loadImageList(LoadImageCallback loadImageCallback, int size) {
+        List<ImageData> imageDataList = new ArrayList<>();
+
+        for (int index = 1; index <= size; index++) {
+            String name = String.format("sample%02d", Util.random());
+            imageDataList.add(new ImageData(name, name));
+        }
+        loadImageCallback.onImageLoaded(imageDataList);
     }
 }

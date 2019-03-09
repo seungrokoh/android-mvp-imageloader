@@ -16,27 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-    private HomeFragment homeFragment = new HomeFragment();
-    private CameraFragment cameraFragment = new CameraFragment();
-    private MoreFragment moreFragment = new MoreFragment();
-
-    private FrameLayout container;
-
-    private void init(){
-        container = findViewById(R.id.container);
-        Bundle bundle = new Bundle();
-        bundle.putInt(HomeFragment.KEY_TITLE, R.string.title_home);
-        homeFragment.setArguments(bundle);
-
-        bundle.clear();
-        bundle.putInt(CameraFragment.KEY_TITLE, R.string.title_camera);
-        cameraFragment.setArguments(bundle);
-
-        bundle.clear();
-        bundle.putInt(moreFragment.KEY_TITLE, R.string.title_more);
-        moreFragment.setArguments(bundle);
-    }
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -65,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        init();
 
         Util.replaceFragmentToActivity(getSupportFragmentManager(), HomeFragment.getInstance(), R.id.container);
     }
