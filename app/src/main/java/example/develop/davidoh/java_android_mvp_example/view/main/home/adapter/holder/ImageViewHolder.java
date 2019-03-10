@@ -13,11 +13,12 @@ import android.widget.TextView;
 import example.develop.davidoh.java_android_mvp_example.R;
 import example.develop.davidoh.java_android_mvp_example.data.ImageData;
 import example.develop.davidoh.java_android_mvp_example.listener.OnItemClickListener;
+import example.develop.davidoh.java_android_mvp_example.view.custom.GlideImageview;
 
 public class ImageViewHolder extends RecyclerView.ViewHolder {
 
     private TextView tvTitle;
-    private ImageView imageView;
+    private GlideImageview imageView;
 
     private Context context;
 
@@ -40,7 +41,8 @@ public class ImageViewHolder extends RecyclerView.ViewHolder {
 
     public void onBindView(ImageData imageData, int position){
         tvTitle.setText(imageData.getName());
-
+        //imageView.setImageResource(context.getResources().getIdentifier(imageData.getFileName(), "drawable", context.getPackageName()));
+        imageView.loadImages(imageData.getFileName());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment implements HomeContractor.View{
         super.onDestroyView();
         recyclerView.removeOnScrollListener(recyclerViewOnScrollListener);
     }
-    
+
     @Override
     public void showImageLoaded() {
         //Toast.makeText(getActivity(), "images loaded", Toast.LENGTH_SHORT).show();

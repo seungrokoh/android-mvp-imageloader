@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text = "ImageName"/>
 
-    <ImageView
+    <example.develop.davidoh.java_android_mvp_example.view.custom.GlideImageview
         android:id="@+id/img_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
