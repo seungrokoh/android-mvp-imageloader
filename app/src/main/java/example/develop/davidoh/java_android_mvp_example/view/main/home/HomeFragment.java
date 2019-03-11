@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import example.develop.davidoh.java_android_mvp_example.R;
+import example.develop.davidoh.java_android_mvp_example.data.source.flickr.FlickrRepository;
 import example.develop.davidoh.java_android_mvp_example.data.source.image.ImageRepository;
 import example.develop.davidoh.java_android_mvp_example.view.main.home.adapter.ImageRecyclerAdapter;
 import example.develop.davidoh.java_android_mvp_example.view.main.home.presenter.HomeContractor;
@@ -51,8 +52,8 @@ public class HomeFragment extends Fragment implements HomeContractor.View{
         recyclerView.setAdapter(imageRecyclerAdapter);
         recyclerView.addOnScrollListener(recyclerViewOnScrollListener);
 
-        homePresenter = new HomePresenter(this, ImageRepository.getInstance(), imageRecyclerAdapter);
-        homePresenter.loadImage();
+        homePresenter = new HomePresenter(this, FlickrRepository.getInstance(), imageRecyclerAdapter);
+        homePresenter.loadFlickrImage();
 
 
     }
@@ -78,6 +79,16 @@ public class HomeFragment extends Fragment implements HomeContractor.View{
         progressBar.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public void showLoadFail() {
+        Toast.makeText(getContext(), "Load Fail", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showLoadFail(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
     private RecyclerView.OnScrollListener recyclerViewOnScrollListener = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -92,8 +103,8 @@ public class HomeFragment extends Fragment implements HomeContractor.View{
             }
 
             // 스크롤 시 계속해서 로딩할 수 있게
-            if (!homePresenter.isLoading() && (firstVisibleItem + visibleItemCount) >= totalItemCount - 7) {
-                homePresenter.loadImage();
+            if (!homePresenter.isLoading() && (firstVisibleItem + visibleItemCount) >= totalItemCount - 3) {
+                homePresenter.loadFlickrImage();
             }
 
 

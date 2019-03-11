@@ -8,9 +8,13 @@ public interface HomeContractor {
         void hideProgress();
 
         void showProgress();
+
+        void showLoadFail();
+
+        void showLoadFail(String message);
     }
 
     interface Presenter {
-        void loadImage();
+        void loadFlickrImage();
     }
 }

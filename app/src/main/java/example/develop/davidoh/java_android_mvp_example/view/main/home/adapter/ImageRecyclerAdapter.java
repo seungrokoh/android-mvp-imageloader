@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.develop.davidoh.java_android_mvp_example.data.ImageData;
+import example.develop.davidoh.java_android_mvp_example.data.PhotoItem;
 import example.develop.davidoh.java_android_mvp_example.listener.OnItemClickListener;
 import example.develop.davidoh.java_android_mvp_example.view.main.home.adapter.holder.ImageViewHolder;
 import example.develop.davidoh.java_android_mvp_example.view.main.home.adapter.model.ImageRecyclerModel;
@@ -16,7 +16,7 @@ import example.develop.davidoh.java_android_mvp_example.view.main.home.adapter.m
 public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageViewHolder> implements ImageRecyclerModel{
 
     private Context context;
-    private List<ImageData> imageList = new ArrayList<>();
+    private List<PhotoItem> imageList = new ArrayList<>();
 
     private OnItemClickListener onItemClickListener;
 
@@ -36,12 +36,12 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageViewHolder> 
     }
 
     @Override
-    public void addItem(ImageData item) {
+    public void addItem(PhotoItem item) {
         imageList.add(item);
     }
 
     @Override
-    public ImageData getItem(int position) {
+    public PhotoItem getItem(int position) {
         return imageList.get(position);
     }
 
