@@ -1,0 +1,17 @@
+package example.develop.davidoh.java_android_mvp_example.view.main.home.presenter
+
+interface HomeContractor {
+    interface View {
+
+        fun hideProgress()
+        fun showProgress()
+
+        fun showLoadFail()
+        fun showLoadFail(message: String)
+    }
+
+    interface Presenter {
+
+        fun loadFlickrImage()
+    }
+}

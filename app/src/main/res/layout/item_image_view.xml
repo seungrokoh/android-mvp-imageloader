@@ -7,7 +7,7 @@
     android:layout_height="250dp"
     android:background="@android:color/black">
 
-    <example.develop.davidoh.java_android_mvp_example.view.custom.GlideImageview
+    <example.develop.davidoh.java_android_mvp_example.view.custom.GlideImageView
         android:id="@+id/img_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
