@@ -1,6 +1,7 @@
 package example.develop.davidoh.java_android_mvp_example.view.main.home
 
 import android.os.Bundle
+import android.support.design.widget.BottomSheetDialogFragment
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import example.develop.davidoh.java_android_mvp_example.R
 import example.develop.davidoh.java_android_mvp_example.data.source.flickr.FlickrRepository
+import example.develop.davidoh.java_android_mvp_example.view.main.detail.DetailImageBottomSheet
 import example.develop.davidoh.java_android_mvp_example.view.main.home.adapter.ImageRecyclerAdapter
 import example.develop.davidoh.java_android_mvp_example.view.main.home.presenter.HomeContractor
 import example.develop.davidoh.java_android_mvp_example.view.main.home.presenter.HomePresenter
@@ -64,6 +66,12 @@ class HomeFragment : Fragment(), HomeContractor.View {
         if (isDetached) return
 
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showBottomSheetDialog(photoId: String) {
+        if (isDetached) return
+
+        DetailImageBottomSheet.create(photoId).show(activity?.supportFragmentManager, "DetailImageBottomSheet")
     }
 
     private val recyclerViewOnScrollListener = object : RecyclerView.OnScrollListener() {

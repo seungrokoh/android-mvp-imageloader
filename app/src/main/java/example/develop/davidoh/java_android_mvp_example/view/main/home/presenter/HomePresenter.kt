@@ -16,6 +16,12 @@ class HomePresenter(private val view: HomeContractor.View,
     private var page = 0
     private val perPage = 50
 
+    init {
+        imageRecyclerModel.onclick = {position ->
+            view.showBottomSheetDialog(imageRecyclerModel.getItem(position).id)
+        }
+    }
+
     override fun loadFlickrImage() {
         isLoading = true
         view.showProgress()

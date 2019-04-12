@@ -1,6 +1,7 @@
 package example.develop.davidoh.java_android_mvp_example.network
 
 import example.develop.davidoh.java_android_mvp_example.BuildConfig
+import example.develop.davidoh.java_android_mvp_example.data.PhotoInfo
 import example.develop.davidoh.java_android_mvp_example.data.PhotoResponse
 import retrofit2.Call
 import retrofit2.http.POST
@@ -21,4 +22,9 @@ interface FlickrServiceInterface {
             @Query("page") page: Int,
             @Query("per_page") perPage: Int
     ): Call<PhotoResponse>
+
+    @POST("?method=flickr.photos.getInfo&api_key=${BuildConfig.FLICKR_API_KEY}&format=json&nojsoncallback=1")
+    fun getFlickrPhotoDetail(
+            @Query("photo_id") photoId: String
+    ): Call<PhotoInfo>
 }

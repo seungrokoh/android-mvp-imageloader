@@ -1,7 +1,9 @@
 package example.develop.davidoh.java_android_mvp_example.data.source.flickr
 
+import example.develop.davidoh.java_android_mvp_example.data.PhotoInfo
 import example.develop.davidoh.java_android_mvp_example.network.FlickrServiceInterface
 import example.develop.davidoh.java_android_mvp_example.network.createRetrofit
+import retrofit2.Call
 
 class FlickrRemoteData: FlickrDataSource {
 
@@ -20,4 +22,7 @@ class FlickrRemoteData: FlickrDataSource {
             page = page,
             perPage = perPage
     )
+
+    override fun getPhotoDetail(photoId: String): Call<PhotoInfo>
+            = flickrServiceInterface.getFlickrPhotoDetail(photoId)
 }

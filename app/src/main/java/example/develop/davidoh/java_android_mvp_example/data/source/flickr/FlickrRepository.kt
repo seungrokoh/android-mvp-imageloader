@@ -1,10 +1,10 @@
 package example.develop.davidoh.java_android_mvp_example.data.source.flickr
 
+import example.develop.davidoh.java_android_mvp_example.data.PhotoInfo
 import example.develop.davidoh.java_android_mvp_example.data.PhotoResponse
 import retrofit2.Call
 
 object FlickrRepository : FlickrDataSource {
-
     private val flickrRemoteData = FlickrRemoteData()
 
     override fun getRecentPhoto(page: Int, perPage: Int): Call<PhotoResponse> {
@@ -13,5 +13,10 @@ object FlickrRepository : FlickrDataSource {
 
     override fun getSearchPhoto(keyword: String, page: Int, perPage: Int): Call<PhotoResponse>
             = flickrRemoteData.getSearchPhoto(keyword, page, perPage)
+
+    override fun getPhotoDetail(photoId: String): Call<PhotoInfo>
+            = flickrRemoteData.getPhotoDetail(photoId)
+
+
 
 }
