@@ -1,8 +1,10 @@
 package example.develop.davidoh.java_android_mvp_example.view.main.detail
 
 import android.app.Dialog
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.support.customtabs.CustomTabsIntent
 import android.support.design.widget.BottomSheetBehavior
 import android.support.design.widget.BottomSheetDialogFragment
 import android.text.Html
@@ -16,22 +18,20 @@ import example.develop.davidoh.java_android_mvp_example.view.main.detail.present
 import kotlinx.android.synthetic.main.layout_photo_detail.*
 
 class DetailImageBottomSheet: BottomSheetDialogFragment(), DetailImageContract.View{
-
     companion object {
-        const val KEY_PHOTO_ID = "key-photo-id"
 
+        const val KEY_PHOTO_ID = "key-photo-id"
         fun create(photoId: String) : DetailImageBottomSheet
                 = DetailImageBottomSheet().apply {
             arguments = Bundle().apply {
                 putString(KEY_PHOTO_ID, photoId)
             }
         }
-    }
 
+    }
     private val detailImagePresenter: DetailImagePresenter by lazy {
         DetailImagePresenter(this@DetailImageBottomSheet, FlickrRepository)
     }
-
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -59,6 +59,7 @@ class DetailImageBottomSheet: BottomSheetDialogFragment(), DetailImageContract.V
         }
         return dialog
     }
+
 
     private fun updateToolbarVisibility() {
         when (app_bar.visibility) {
@@ -92,14 +93,15 @@ class DetailImageBottomSheet: BottomSheetDialogFragment(), DetailImageContract.V
 
         img_web.setOnClickListener {
             // Show chrome.
+            detailImagePresenter.loadFlickrWebPage()
         }
         detailImagePresenter.loadDetailInfo(arguments!!.getString(KEY_PHOTO_ID))
     }
+
     override fun updateToolbarItem(buddyIcon: String, buddyName: String) {
         img_owner_image.loadImage(buddyIcon)
         tv_owner_name.text = buddyName
     }
-
     override fun updateItem(imageUrl: String, title: String, content: String, date: String, viewCount: String, commentCount: String) {
         img.loadImage(imageUrl)
 
@@ -112,6 +114,14 @@ class DetailImageBottomSheet: BottomSheetDialogFragment(), DetailImageContract.V
         tv_date.text = date
         tv_viewer_count.text = viewCount
         tv_comment_count.text = commentCount
+    }
+
+    override fun showFlickrWebPage(url: String) {
+        CustomTabsIntent.Builder().apply {
+            setToolbarColor(resources.getColor(R.color.colorAccent))
+        }.build().run {
+            launchUrl(context, Uri.parse(url))
+        }
     }
 
 }

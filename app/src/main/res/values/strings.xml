@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">java-android-mvp-example</string>
+    <string name="app_name">Simple ImageLoader\</string>
     <string name="username_error">유저 이름을 입력하세요.</string>
     <string name="password_error">패스워드를 입력하세요.</string>
     <string name="password_hint">비밀번호</string>
